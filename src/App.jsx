@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './component/Navbar/Navbar';
 import HomePage from './pages/HomePage/HomePage';
 import HafalanPage from './pages/HafalanPage/Hafalanpage';
@@ -71,7 +71,7 @@ function App() {
   const persentase = totalSurah === 0 ? 0 : Math.round((totalProgres / totalSurah));
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className="app">
         <Navbar theme={theme} toggleTheme={toggleTheme} />
         <main className="main-content">
@@ -114,7 +114,7 @@ function App() {
           </Routes>
         </main>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
