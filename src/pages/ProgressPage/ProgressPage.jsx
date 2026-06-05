@@ -1,4 +1,4 @@
-import ProgressBar from '../../components/ProgressBar/ProgressBar';
+import ProgressBar from '../../component/ProgressBar/Progressbar';
 import styles from './ProgressPage.module.css';
 
 function ProgressPage({ hafalanList, totalAyat, selesaiAyat, persentase }) {

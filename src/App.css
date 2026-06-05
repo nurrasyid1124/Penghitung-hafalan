@@ -2,15 +2,25 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background: radial-gradient(circle at top left, rgba(74, 222, 128, 0.12), transparent 38%),
+    radial-gradient(circle at bottom right, rgba(59, 130, 246, 0.14), transparent 35%);
 }
 
 .main-content {
   flex: 1;
-  padding: 1.5rem;
+  width: min(1120px, 100%);
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .main-content {
-    padding: 1rem;
+    padding: 1.5rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    padding: 1rem 0.75rem;
   }
 }

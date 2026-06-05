@@ -1,13 +1,11 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar/Navbar';
+import Navbar from './component/Navbar/Navbar';
 import HomePage from './pages/HomePage/HomePage';
-import ProgressBar from "../../components/ProgressBar/ProgressBar";
-import HafalanPage from './pages/HafalanPage/HafalanPage';
+import HafalanPage from './pages/HafalanPage/Hafalanpage';
 import ProgressPage from './pages/ProgressPage/ProgressPage';
 import AboutPage from './pages/AboutPage/AboutPage';
-import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
-import styles from "./ProgressPage.module.css";
+import NotFoundPage from './pages/NoutFoundPage/NoutFoundPage';
 import './App.css';
 
 function App() {

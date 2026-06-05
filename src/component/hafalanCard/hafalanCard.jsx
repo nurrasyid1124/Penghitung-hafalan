@@ -1,6 +1,6 @@
 import styles from './HafalanCard.module.css';
 
-function HafalanCard({ hafalan, onToggle, onHapus, onUpdateProgres }) {
+function HafalanCard({ hafalan, onToggle, onHapus, onUpdateProgres, searchTerm }) {
   const handleProgresChange = (delta) => {
     onUpdateProgres(hafalan.id, hafalan.progres + delta);
   };
@@ -10,10 +10,37 @@ function HafalanCard({ hafalan, onToggle, onHapus, onUpdateProgres }) {
     onUpdateProgres(hafalan.id, value);
   };
 
+  const escapeHtml = (value) =>
+    value
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+
+  const highlightSurah = (text, query) => {
+    const safeText = escapeHtml(text);
+    const safeQuery = query.trim();
+
+    if (!safeQuery) return safeText;
+
+    const escapedQuery = safeQuery.replace(/[.*+?^${}()|[\\]\\]/g, '\\$&');
+    const regex = new RegExp(`(${escapedQuery})`, 'gi');
+
+    return safeText.replace(regex, '<mark>$1</mark>');
+  };
+
+  const surahTitle = searchTerm
+    ? highlightSurah(hafalan.surah, searchTerm)
+    : escapeHtml(hafalan.surah);
+
   return (
     <div className={`${styles.card} ${hafalan.selesai ? styles.completed : ''}`}>
       <div className={styles.info}>
-        <h3 className={styles.surah}>{hafalan.surah}</h3>
+        <h3
+          className={styles.surah}
+          dangerouslySetInnerHTML={{ __html: surahTitle }}
+        />
         <p className={styles.ayat}>{hafalan.ayat} ayat</p>
       </div>
 

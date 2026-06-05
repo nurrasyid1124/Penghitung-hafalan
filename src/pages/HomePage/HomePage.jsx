@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import ProgressBar from '../../components/ProgressBar/ProgressBar';
+import ProgressBar from '../../component/ProgressBar/Progressbar';
 import styles from './HomePage.module.css';
 
 function HomePage({ selesai, total, persentase }) {
